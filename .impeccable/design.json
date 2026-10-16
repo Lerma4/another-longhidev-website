@@ -1,0 +1,47 @@
+{
+  "colors": {
+    "canvas": "#f7f7f4",
+    "brandTint": "#f2e9ea",
+    "brand": "#6b0911",
+    "logoGray": "#545454",
+    "white": "#ffffff",
+    "ink": "#242424",
+    "line": "#d8d6d2",
+    "shopSurface": "#faf8f5",
+    "gallerySurface": "#f6f1e8"
+  },
+  "typography": {
+    "body": "Outfit Variable",
+    "bodyWeights": [400, 500, 600, 700],
+    "editorialItalic": "Georgia"
+  },
+  "layout": {
+    "header": "compact sticky white capsule with logo at left, Lavoro centered, and cominciamo at right",
+    "hero": "light canvas and brand-tint field, centered static headline, changing service label, responsive device below",
+    "desktopDevice": "laptop frame with three concept screens",
+    "mobileDevice": "phone frame with vertically adapted, scrollable concept screens below 640px",
+    "deviceViews": ["management dashboard", "ecommerce product page", "art exhibition website"],
+    "contact": "compact local demo form below hero",
+    "mobile": "single-line capsule navigation, natural hero height, touch controls"
+  },
+  "motion": {
+    "serviceLabel": "short opacity and vertical transition on service change",
+    "deviceAutoplay": "slow rotation until manual selection; pause offscreen or hidden tab",
+    "manualControls": ["44px touch buttons", "horizontal swipe", "left and right arrow keys"],
+    "reducedMotion": "disable autoplay and service-label animation; keep manual controls"
+  },
+  "assets": {
+    "brandLogo": "public/images/longhidev-logo.png",
+    "ecommerceProduct": "public/images/filo-vaso.jpg",
+    "exhibitionGallery": "public/images/spazio-forma-mostra.jpg",
+    "fonts": "self-hosted Outfit Variable"
+  },
+  "interactions": {
+    "contactForm": "native validation and local confirmation only; no sending or storage",
+    "ecommerceCart": "increments local count and confirms action; no order or persistence"
+  },
+  "contentPolicy": {
+    "examples": "fictional concepts labeled as demos",
+    "claims": "no invented customers, testimonials, metrics, or outcomes"
+  }
+}
