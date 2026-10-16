@@ -18,4 +18,8 @@ Built with Astro, TypeScript, and the self-hosted Outfit Variable font.
 - `npm run build` — build the static site
 - `npm test` — run the built-page content check; run `npm run build` first
 
+## Deployment
+
+Pushing to `main` publishes `ghcr.io/lerma4/another-longhidev-website` and updates the GitOps overlay. Configure the `GITOPS_REPO_TOKEN` Actions secret with write access to `Lerma4/k3s-argocd-gitops`; keep the GHCR package public so the cluster can pull it.
+
 Full Astro documentation: https://docs.astro.build
