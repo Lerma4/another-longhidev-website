@@ -14,21 +14,21 @@ Outfit Variable is self-hosted for body and interface text, giving the page a so
 
 The compact sticky header capsule contains the logo at left, `Lavoro` centered, and `cominciamo` at right. The hero has a static software development headline and a service term that rotates among management software, ecommerce, and websites. Below it, a laptop frame contains three compact HTML concept screens: a management dashboard, an ecommerce product page, and an art exhibition site.
 
-Visitors can choose a screen with the visible buttons, horizontal swipe, or left and right arrow keys while the laptop is focused. The demo rotates slowly until the visitor makes a manual choice. It pauses when the laptop leaves view or the browser tab is hidden. Reduced-motion preferences disable autoplay and the changing-word animation; the controls remain available.
+The device is a non-interactive HyperFrames composition, embedded with `@hyperframes/player` and driven by one paused GSAP timeline. It loops every 9 seconds, with roughly three seconds per service, coordinated screen transitions and scripted product details. There are no scene-selection controls, swipe gestures, or clickable demo actions. A discreet pause/resume control remains for accessibility. Playback stops offscreen or in a hidden tab; reduced-motion preferences show a still frame and the complete service list.
 
-At narrow widths, the hero and phone use a natural content height, the navigation stays on one line, and screen controls retain 44px touch targets. Each phone view is a vertical layout; the phone screen scrolls vertically without blocking page scrolling. The form follows the hero and remains a compact second step.
+Desktop and mobile compositions share the device markup and timeline, with native canvases of 1120×680 and 390×720 respectively. Each is scaled proportionally by the player. On desktop and landscape tablets, the film is bounded by the viewport space remaining below the heading and above the pause control. Portrait tablets and phones retain a natural page height; small phone screens scroll the page rather than crop or excessively shrink the film. The service term uses a staggered letter-flip entrance synchronized to scene changes, with natural text width instead of a fixed reserved gap. The mobile film shows vertical phone layouts without internal scrolling. The form follows the hero and remains a compact second step.
 
 ## Local demo interactions
 
 The `cominciamo` link opens a contact form with visible labels and native field validation. Submitting valid fields sends the request to the private contact intake through the site's server endpoint.
 
-The ecommerce `Aggiungi al carrello` control increments a local count and changes its label to confirm the action. It is only an interface demo: it creates no order and stores no cart data.
+The ecommerce add-to-cart action is scripted on the film's timeline, not triggered by visitors. It creates no order and stores no cart data.
 
 ## Accessibility and assets
 
-The page uses Italian language metadata, semantic landmarks, a skip link, visible keyboard focus, and labeled concept screens. Inactive laptop views are removed from keyboard interaction with `inert`. The contact status and cart count use polite live regions. The static text gives screen-reader users the complete list of services.
+The page uses Italian language metadata, semantic landmarks, a skip link, and visible keyboard focus. The decorative player is inert and hidden from assistive technology; a static accessible description lists all three services. Contact feedback retains its polite live region.
 
-The product photo and generated gallery photo are local assets. The supplied logo and self-hosted font files are local as well; the home has no animation library or remote media runtime.
+The product photo, generated gallery photo, logo, font, player, and GSAP are served locally. HyperFrames runtime 0.8.171 is vendored from `@hyperframes/core` in `public/vendor/hyperframes/` with its MIT license; update that file deliberately alongside the player version. No remote CDN is required for playback.
 
 ## Current limits
 

@@ -30,25 +30,13 @@ export const prerender = true;
 					<h1 id="hero-title">Sviluppo software<br />su misura.</h1>
 					<p class="hero-subtitle">Per <span class="changing-word" aria-hidden="true">gestionali</span><span class="sr-only">gestionali, ecommerce e siti web</span> che semplificano il tuo lavoro.</p>
 				</div>
-				<div class="laptop" id="lavoro" tabindex="0" aria-label="Tre concept dimostrativi: gestionale, ecommerce e sito per una mostra d'arte. Usa le frecce sinistra e destra per cambiare vista.">
-					<div class="screen">
-						<div class="screen-bar"><span class="screen-brand">longhidev<span>.</span></span><span class="demo-label">CONCEPT DIMOSTRATIVI</span><span class="window-dots" aria-hidden="true">● ● ●</span></div>
-						<div class="views" aria-live="off">
-							<article class="view view-admin is-active" data-view="0" aria-label="Concept gestionale Nodo">
-								<aside><b>nodo<span>.</span></b><span class="selected">Panoramica</span><span>Ordini</span><span>Prodotti</span><span>Clienti</span><small>CONCEPT DEMO</small></aside>
-								<div class="admin-main"><div class="admin-top">Mercoledì, 14 ottobre 2026 <b>MC</b></div><p class="view-kicker">LA TUA ATTIVITÀ</p><h2>Buongiorno, Marco</h2><p class="muted">Ecco cosa succede oggi.</p><div class="stats"><div><small>Ordini aperti</small><strong>24</strong><em>4 da ieri</em></div><div><small>Da preparare</small><strong>06</strong><em>Da evadere oggi</em></div><div><small>Prodotti</small><strong>128</strong><em>Catalogo attivo</em></div></div><div class="table"><b>Ordini recenti</b><div><span>#1048　Kit manutenzione</span><i>In lavorazione</i></div><div><span>#1047　Vaso Forma 02</span><i>Nuovo ordine</i></div><div><span>#1046　Pane di segale</span><i>Pronto</i></div></div></div>
-							</article>
-							<article class="view view-shop" data-view="1" aria-label="Concept ecommerce FILO" inert>
-								<header><b>FILO<span>®</span></b><nav>Shop　 Collezioni　 Storie</nav><span class="cart-indicator" role="group" aria-label="Carrello"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span data-cart-count aria-live="polite">0</span></span></header><div class="shop-content"><img class="product-photo" src="/images/filo-vaso.jpg" alt="Vaso Forma 02 in terracotta" /><div><p class="view-kicker">FILO / CERAMICHE</p><h2>Forma 02</h2><p class="muted">Una forma scultorea, modellata a mano.</p><strong class="price">€ 48,00</strong><p class="muted">Terracotta · pezzo artigianale</p><button type="button" data-add-to-cart aria-pressed="false">Aggiungi al carrello</button><small class="concept-note">Negozio online · concept dimostrativo</small></div></div>
-							</article>
-							<article class="view view-art" data-view="2" aria-label="Concept sito per la mostra Segni di luce" inert>
-								<header><b>SPAZIO FORMA</b><nav>Mostra　 Spazio　 Visita</nav><small>TORINO · 2026</small></header><div class="art-content"><img class="exhibition-photo" src="/images/spazio-forma-mostra.jpg" alt="Dipinto astratto esposto in una galleria" /><div class="art-copy"><p class="view-kicker">MOSTRA TEMPORANEA · 12 SET — 28 NOV 2026</p><h2>Segni<br /><em>di luce.</em></h2><p>Una mostra immaginaria sull'incontro tra colore, spazio e materia.</p><span class="art-link-label">Scopri la mostra　↗</span><small class="concept-note">Sito vetrina · concept dimostrativo</small></div></div>
-							</article>
-						</div>
-						<div class="screen-footer"><span>ANTEPRIMA INTERATTIVA · DATI E NOMI DI FANTASIA</span><div class="view-controls" role="group" aria-label="Scegli una demo"><button type="button" data-select="0" aria-label="Mostra gestionale" aria-pressed="true">01 <span>Gestionale</span></button><button type="button" data-select="1" aria-label="Mostra ecommerce" aria-pressed="false">02 <span>Ecommerce</span></button><button type="button" data-select="2" aria-label="Mostra sito mostra d'arte" aria-pressed="false">03 <span>Sito web</span></button></div></div>
-					</div>
-					<div class="laptop-base" aria-hidden="true"></div>
+				<div class="hero-stage">
+				<div class="hero-film" id="lavoro" role="img" aria-label="Animazione dimostrativa: un gestionale, un ecommerce di ceramiche e un sito per una mostra d’arte. Nomi e dati di fantasia.">
+					<hyperframes-player width="1120" height="680" loop muted disable-click-to-play assets-loading-ui="none" runtime-src="/vendor/hyperframes/runtime-0.8.171.js" aria-hidden="true" inert></hyperframes-player>
+					<p class="motion-fallback">Gestionali · Ecommerce · Siti web</p>
 				</div>
+				</div>
+				<button class="motion-toggle" type="button" aria-pressed="false" hidden>Metti in pausa l’animazione</button>
 			</section>
 			<section class="contact-demo" id="contatto" aria-labelledby="contact-title">
 				<div><p class="eyebrow">Facciamo il primo passo</p><h2 id="contact-title">Raccontami il tuo progetto.</h2><p>Il messaggio sarà registrato per poter essere letto e ricevere una risposta. Consulta l’<a href="/privacy/">informativa privacy</a>. In alternativa, scrivi a <a href="mailto:lorenzo.longhi1995@gmail.com">lorenzo.longhi1995@gmail.com</a>.</p></div>

@@ -1,8 +1,8 @@
 # LonghiDev portfolio demo
 
-Responsive LonghiDev home with a capsule navigation on a light canvas, a static headline, a changing service label, and an interactive device showing three illustrative product concepts. Desktop uses a laptop; screens under 640px use a phone with vertically adapted, scrollable interfaces. The contact form sends submissions through the server to the private Windmill intake; the ecommerce cart only changes its local count. Names and interface data in the concepts are fictional.
+Responsive LonghiDev home with a capsule navigation, static headline, synchronized service label, and a non-interactive HyperFrames film showing three illustrative product concepts. The film loops every 9 seconds (about three seconds per service), using a laptop on desktop and vertical phone layouts below 640px. Only an accessible pause/resume control is exposed. Playback pauses offscreen, in hidden tabs, and for reduced-motion preferences. The contact form sends submissions through the server to the private Windmill intake. Names and interface data in the concepts are fictional.
 
-Built with Astro, TypeScript, and the self-hosted Outfit Variable font.
+Built with Astro, TypeScript, `@hyperframes/player`, GSAP, and the self-hosted Outfit Variable font. The composition lives in `src/pages/motion/[format].astro` with shared device markup in `src/components/HeroDevice.astro`. Runtime 0.8.171 is self-hosted in `public/vendor/hyperframes/` (MIT license included); playback needs no CDN.
 
 ## Development
 
