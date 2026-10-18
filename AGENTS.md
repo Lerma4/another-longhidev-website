@@ -1,5 +1,7 @@
 ## Development
 
+Before every commit, run `npm run check` (`astro check`) and resolve any reported errors.
+
 When starting the dev server, use background mode:
 
 ```
