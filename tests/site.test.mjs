@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const html = await readFile(new URL("../dist/index.html", import.meta.url), "utf8");
+const html = await readFile(new URL("../dist/client/index.html", import.meta.url), "utf8");
 const script = await readFile(new URL("../src/scripts/portfolio.ts", import.meta.url), "utf8");
 
 test("home contains the hero, three accessible demo views, and contact form", () => {
@@ -26,9 +26,12 @@ test("home contains the hero, three accessible demo views, and contact form", ()
 	assert.match(html, /data-view="2"[\s\S]*?MOSTRA TEMPORANEA[\s\S]*?Segni[\s\S]*?di luce\./);
 	assert.equal((html.match(/data-select="[0-2]"/g) ?? []).length, 3);
 	assert.match(html, /DATI E NOMI DI FANTASIA/);
-	assert.match(html, /<form id="demo-form">/);
+	assert.match(html, /<form id="contact-form">/);
 	assert.match(html, /name="name"[^>]*required/);
 	assert.match(html, /name="email" type="email"[^>]*required/);
 	assert.match(html, /id="form-status" aria-live="polite"/);
-	assert.match(html, /non vengono inviati né salvati/);
+	assert.match(html, /name="website"/);
+	assert.match(script, /contactEventIds\.clear\(\)/);
+	assert.match(script, /fetch\("\/api\/contact"/);
+	assert.match(html, /id="form-status"/);
 });

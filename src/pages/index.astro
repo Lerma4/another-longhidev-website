@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+export const prerender = true;
 ---
 
 <!doctype html>
@@ -50,14 +51,15 @@ import "../styles/global.css";
 				</div>
 			</section>
 			<section class="contact-demo" id="contatto" aria-labelledby="contact-title">
-				<div><p class="eyebrow">Facciamo il primo passo</p><h2 id="contact-title">Raccontami il tuo progetto.</h2><p>Modulo dimostrativo: i dati restano in questa pagina e non vengono inviati né salvati. Per contattarmi, scrivi a <a href="mailto:lorenzo.longhi1995@gmail.com">lorenzo.longhi1995@gmail.com</a> dopo aver consultato l’<a href="/privacy/">informativa privacy</a>.</p></div>
-				<form id="demo-form">
-					<label>Il tuo nome<input name="name" autocomplete="name" required minlength="2" /></label>
-					<label>La tua email<input name="email" type="email" autocomplete="email" required /></label>
+				<div><p class="eyebrow">Facciamo il primo passo</p><h2 id="contact-title">Raccontami il tuo progetto.</h2><p>Il messaggio sarà registrato per poter essere letto e ricevere una risposta. Consulta l’<a href="/privacy/">informativa privacy</a>. In alternativa, scrivi a <a href="mailto:lorenzo.longhi1995@gmail.com">lorenzo.longhi1995@gmail.com</a>.</p></div>
+				<form id="contact-form">
+					<label>Il tuo nome<input name="name" autocomplete="name" required minlength="2" maxlength="100" /></label>
+					<label>La tua email<input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
 					<label>Tipo di progetto<select name="service" required><option value="" selected disabled>Scegli un'opzione</option><option>Gestionale</option><option>Ecommerce</option><option>Sito web</option><option>Non lo so ancora</option></select></label>
-					<label>Due righe sul progetto<textarea name="message" rows="3" required minlength="10"></textarea></label>
-					<button type="submit">Prepara il messaggio</button>
-					<p id="form-status" aria-live="polite">Nessun invio o salvataggio: è solo una demo.</p>
+					<label>Due righe sul progetto<textarea name="message" rows="3" required minlength="10" maxlength="5000"></textarea></label>
+					<label class="contact-trap" aria-hidden="true">Lascia vuoto<input name="website" tabindex="-1" autocomplete="off" /></label>
+					<button type="submit">Invia il messaggio</button>
+					<p id="form-status" aria-live="polite">I campi restano compilati se l’invio non riesce.</p>
 				</form>
 			</section>
 		</main>

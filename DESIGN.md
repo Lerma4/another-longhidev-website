@@ -20,7 +20,7 @@ At narrow widths, the hero and phone use a natural content height, the navigatio
 
 ## Local demo interactions
 
-The `cominciamo` link opens a contact form with visible labels and native field validation. Submitting valid fields only displays a confirmation in the page; it sends and stores no information because no contact destination or backend is configured.
+The `cominciamo` link opens a contact form with visible labels and native field validation. Submitting valid fields sends the request to the private contact intake through the site's server endpoint.
 
 The ecommerce `Aggiungi al carrello` control increments a local count and changes its label to confirm the action. It is only an interface demo: it creates no order and stores no cart data.
 
@@ -32,4 +32,4 @@ The product photo and generated gallery photo are local assets. The supplied log
 
 ## Current limits
 
-The art exhibition, product shop, management tool, names, dates, and data are fictional concepts. The contact form and cart are local demonstrations with no network requests, persistence, or real transaction flow.
+The art exhibition, product shop, management tool, names, dates, and data are fictional concepts. The cart remains a local demonstration; the contact form submits actual inquiries.
