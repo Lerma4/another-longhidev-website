@@ -3,6 +3,13 @@ import type { HyperframesPlayer } from "@hyperframes/player";
 
 const player = document.querySelector<HyperframesPlayer>("hyperframes-player");
 const film = document.querySelector<HTMLElement>(".hero-film");
+const pageLoader = document.querySelector<HTMLElement>(".page-loader");
+const dismissPageLoader = () => {
+	if (!pageLoader || pageLoader.classList.contains("is-leaving")) return;
+	pageLoader.classList.add("is-leaving");
+	pageLoader.addEventListener("transitionend", () => pageLoader.remove(), { once: true });
+	setTimeout(() => pageLoader.remove(), 500);
+};
 const toggle = document.querySelector<HTMLButtonElement>(".motion-toggle");
 const term = document.querySelector<HTMLElement>("[data-hero-term]");
 const benefit = document.querySelector<HTMLElement>("[data-hero-benefit]");
@@ -63,6 +70,7 @@ if (player && film && toggle) {
 	});
 	player.addEventListener("painted", () => {
 		film.classList.add("is-ready");
+		dismissPageLoader();
 		toggle.hidden = reduce.matches;
 	});
 	player.addEventListener("timeupdate", () => {
@@ -70,6 +78,7 @@ if (player && film && toggle) {
 		showPair(index);
 	});
 	player.addEventListener("error", () => {
+		dismissPageLoader();
 		film.classList.remove("is-ready");
 		toggle.hidden = true;
 		showPair(0);
