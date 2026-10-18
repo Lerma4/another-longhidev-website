@@ -4,14 +4,18 @@ import type { HyperframesPlayer } from "@hyperframes/player";
 const player = document.querySelector<HyperframesPlayer>("hyperframes-player");
 const film = document.querySelector<HTMLElement>(".hero-film");
 const toggle = document.querySelector<HTMLButtonElement>(".motion-toggle");
-const word = document.querySelector<HTMLElement>(".changing-word");
+const term = document.querySelector<HTMLElement>("[data-hero-term]");
+const benefit = document.querySelector<HTMLElement>("[data-hero-benefit]");
 const reduce = matchMedia("(prefers-reduced-motion: reduce)");
 const mobile = matchMedia("(max-width: 640px)");
-const terms = ["gestionali", "ecommerce", "siti web"];
-let displayedTerm = "";
-const animateWord = (text: string) => {
-	if (!word || displayedTerm === text) return;
-	displayedTerm = text;
+const pairs = [
+	["gestionali", "semplificano"],
+	["ecommerce", "fanno crescere"],
+	["siti web", "valorizzano"],
+] as const;
+const animateWord = (word: HTMLElement | null, text: string) => {
+	if (!word || word.dataset.text === text) return;
+	word.dataset.text = text;
 	word.getAnimations({ subtree: true }).forEach((animation) => animation.cancel());
 	if (reduce.matches) {
 		word.textContent = text;
@@ -29,7 +33,11 @@ const animateWord = (text: string) => {
 		{ duration: 460, delay: index * 28, easing: "cubic-bezier(.2,.8,.2,1)", fill: "both" },
 	));
 };
-animateWord(reduce.matches ? "gestionali, ecommerce e siti web" : terms[0]!);
+const showPair = (index: number) => {
+	animateWord(term, reduce.matches ? "gestionali, ecommerce e siti web" : pairs[index]![0]);
+	animateWord(benefit, reduce.matches ? "semplificano, fanno crescere e valorizzano" : pairs[index]![1]);
+};
+showPair(0);
 
 if (player && film && toggle) {
 	let visible = false;
@@ -58,13 +66,13 @@ if (player && film && toggle) {
 		toggle.hidden = reduce.matches;
 	});
 	player.addEventListener("timeupdate", () => {
-		const index = player.currentTime >= 8.725 ? 0 : Math.min(2, Math.floor((player.currentTime + .275) / 3));
-		animateWord(reduce.matches ? "gestionali, ecommerce e siti web" : terms[index]!);
+		const index = player.currentTime >= 11.63 ? 0 : Math.min(2, Math.floor((player.currentTime + .37) / 4));
+		showPair(index);
 	});
 	player.addEventListener("error", () => {
 		film.classList.remove("is-ready");
 		toggle.hidden = true;
-		animateWord("gestionali, ecommerce e siti web");
+		showPair(0);
 	});
 	toggle.addEventListener("click", () => { paused = !paused; updatePlayback(); });
 	document.addEventListener("visibilitychange", updatePlayback);
@@ -73,8 +81,8 @@ if (player && film && toggle) {
 		if (reduce.matches) {
 			player.pause();
 			player.seek(1);
-			animateWord("gestionali, ecommerce e siti web");
 		}
+		showPair(0);
 		updatePlayback();
 	});
 	mobile.addEventListener("change", loadFormat);

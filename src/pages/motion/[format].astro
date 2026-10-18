@@ -17,8 +17,8 @@ const mobile = Astro.params.format === "mobile";
 		<title>LonghiDev — Hero motion</title>
 	</head>
 	<body class="motion-document">
-		<div id="hero-motion" data-composition-id="hero-motion" data-width={mobile ? 390 : 1120} data-height={mobile ? 720 : 680} data-duration="9" data-fps="30">
-			<div id="hero-device-scene" class="clip" data-start="0" data-duration="9" data-track-index="0"><HeroDevice /></div>
+		<div id="hero-motion" data-composition-id="hero-motion" data-width={mobile ? 390 : 1120} data-height={mobile ? 720 : 680} data-duration="12" data-fps="30">
+			<div id="hero-device-scene" class="clip" data-start="0" data-duration="12" data-track-index="0"><HeroDevice /></div>
 		</div>
 		<script is:inline src={gsapUrl}></script>
 		<script is:inline>
@@ -75,7 +75,7 @@ const mobile = Astro.params.format === "mobile";
 			timeline.fromTo(scenes[0], { xPercent: 12, scale: .96, opacity: 0 }, { xPercent: 0, scale: 1, opacity: 1, duration: .55, ease: "power3.out", immediateRender: false }, 17.45);
 			timeline.fromTo(captions[0], { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: .4, immediateRender: false }, 17.6);
 			const master = gsap.timeline({ paused: true });
-			master.to(sequence, { progress: 1, duration: 9, ease: "none" }, 0);
+			master.to(sequence, { progress: 1, duration: 12, ease: "none" }, 0);
 			window.__timelines["hero-motion"] = master;
 			const runtime = document.createElement("script");
 			runtime.src = "/vendor/hyperframes/runtime-0.8.171.js";
