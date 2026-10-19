@@ -1,19 +1,242 @@
-				<div class="laptop">
-					<div class="screen">
-						<div class="screen-bar"><span class="screen-brand">longhidev<span>.</span></span><span class="demo-label">CONCEPT DIMOSTRATIVI</span><span class="window-dots" aria-hidden="true">● ● ●</span></div>
-						<div class="views">
-							<article class="view view-admin" data-view="0" aria-label="Concept gestionale Nodo">
-								<aside><b>nodo<span>.</span></b><span class="selected">Panoramica</span><span>Ordini</span><span>Prodotti</span><span>Clienti</span><small>CONCEPT DEMO</small></aside>
-								<div class="admin-main"><div class="admin-top">Mercoledì, 14 ottobre 2026 <b>MC</b></div><p class="view-kicker">LA TUA ATTIVITÀ</p><h2>Buongiorno, Marco</h2><p class="muted">Ecco cosa succede oggi.</p><div class="stats"><div><small>Ordini aperti</small><strong>24</strong><em>4 da ieri</em></div><div><small>Da preparare</small><strong>06</strong><em>Da evadere oggi</em></div><div><small>Prodotti</small><strong>128</strong><em>Catalogo attivo</em></div></div><div class="table"><b>Ordini recenti</b><div><span>#1048　Kit manutenzione</span><i>In lavorazione</i></div><div><span>#1047　Vaso Forma 02</span><i>Nuovo ordine</i></div><div><span>#1046　Pane di segale</span><i>Pronto</i></div></div></div>
-							</article>
-							<article class="view view-shop" data-view="1" aria-label="Concept ecommerce FILO">
-								<header><b>FILO<span>®</span></b><nav>Shop　 Collezioni　 Storie</nav><span class="cart-indicator" role="group" aria-label="Carrello"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span data-cart-count aria-live="polite">0</span></span></header><div class="shop-content"><img class="product-photo" src="/images/filo-vaso.jpg" alt="Vaso Forma 02 in terracotta" /><div><p class="view-kicker">FILO / CERAMICHE</p><h2>Forma 02</h2><p class="muted">Una forma scultorea, modellata a mano.</p><strong class="price">€ 48,00</strong><p class="muted">Terracotta · pezzo artigianale</p><button type="button" disabled tabindex="-1">Aggiungi al carrello</button><small class="concept-note">Negozio online · concept dimostrativo</small></div></div>
-							</article>
-							<article class="view view-art" data-view="2" aria-label="Concept sito per la mostra Segni di luce">
-								<header><b>SPAZIO FORMA</b><nav>Mostra　 Spazio　 Visita</nav><small>TORINO · 2026</small></header><div class="art-content"><img class="exhibition-photo" src="/images/spazio-forma-mostra.jpg" alt="Dipinto astratto esposto in una galleria" /><div class="art-copy"><p class="view-kicker">MOSTRA TEMPORANEA · 12 SET — 28 NOV 2026</p><h2>Segni<br /><em>di luce.</em></h2><p>Una mostra immaginaria sull'incontro tra colore, spazio e materia.</p><span class="art-link-label">Scopri la mostra　↗</span><small class="concept-note">Sito vetrina · concept dimostrativo</small></div></div>
-							</article>
+<div class="laptop">
+	<div class="screen">
+		<div class="screen-bar"><span class="screen-brand">longhidev<span>.</span></span><span class="demo-label">CONCEPT DIMOSTRATIVI</span><span class="window-dots" aria-hidden="true">● ● ●</span></div>
+		<div class="views">
+			<article class="view view-admin" data-view="0" data-ui aria-label="Concept gestionale Nodo">
+				<header class="admin-header">
+					<b class="admin-logo">nodo<span>.</span></b>
+					<nav aria-label="Gestionale"><span>Panoramica</span><span class="selected">Ordini</span><span>Prodotti</span><span>Clienti</span></nav>
+					<span class="admin-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Cerca in nodo</span>
+					<span class="admin-avatar">MC</span>
+				</header>
+				<div class="admin-main">
+					<div class="admin-overview">
+						<div class="admin-greeting"><h2>Buongiorno, Marco</h2><p class="muted">Ecco cosa succede oggi.</p></div>
+						<div class="stats">
+							<div><strong>24</strong><div><small>Ordini aperti</small><em>4 da ieri</em></div></div>
+							<div><strong>06</strong><div><small>Da preparare</small><em>Da evadere oggi</em></div></div>
+							<div><strong>128</strong><div><small>Prodotti</small><em>Catalogo attivo</em></div></div>
 						</div>
-						<div class="screen-footer"><span>CONCEPT · DATI E NOMI DI FANTASIA</span><div class="motion-captions" aria-hidden="true"><span data-caption="0">01 <span>Gestionale</span></span><span data-caption="1">02 <span>Ecommerce</span></span><span data-caption="2">03 <span>Sito web</span></span></div></div>
 					</div>
-					<div class="laptop-base" aria-hidden="true"></div>
+					<div class="admin-workspace">
+						<div class="orders">
+							<div class="orders-heading"><h3>Ordini recenti</h3><span>14 ottobre 2026</span></div>
+							<div class="orders-toolbar"><span class="selected">Tutti gli ordini</span><span>Da preparare</span><span class="order-filter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4"/></svg>Filtri</span></div>
+							<table>
+								<thead><tr><th>Ordine</th><th>Articolo</th><th>Stato</th></tr></thead>
+								<tbody>
+									<tr class="order-row" data-order-focus><td>#1048</td><td>Kit manutenzione</td><td><span class="order-status status-working">In lavorazione</span></td></tr>
+									<tr class="order-row"><td>#1047</td><td>Vaso Forma 02</td><td><span class="order-status status-new">Nuovo ordine</span></td></tr>
+									<tr class="order-row"><td>#1046</td><td>Pane di segale</td><td><span class="order-status status-ready">Pronto</span></td></tr>
+								</tbody>
+							</table>
+						</div>
+						<section class="order-detail" aria-label="Dettaglio ordine 1048">
+							<div class="detail-heading"><span>Ordine <b>#1048</b></span><span class="order-status status-working">In lavorazione</span></div>
+							<h4>Kit manutenzione</h4>
+							<dl><div><dt>Data</dt><dd>14 ottobre 2026</dd></div><div><dt>Stato</dt><dd>In lavorazione</dd></div></dl>
+							<ol class="order-progress" aria-label="Stato di preparazione"><li class="complete">Nuovo ordine</li><li class="current">In lavorazione</li><li>Pronto</li></ol>
+							<button type="button" disabled tabindex="-1">Apri ordine <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+						</section>
+					</div>
+					<p class="admin-footnote">LA TUA ATTIVITÀ <span>Mercoledì, 14 ottobre 2026 · Concept demo</span></p>
 				</div>
+			</article>
+			<article class="view view-shop" data-view="1" aria-label="Concept ecommerce FILO">
+				<header><b>FILO<span>®</span></b><nav>Shop　 Collezioni　 Storie</nav><span class="cart-indicator" role="group" aria-label="Carrello"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span data-cart-count aria-live="polite">0</span></span></header>
+				<div class="shop-content">
+					<figure class="product-image"><img class="product-photo" src="/images/filo-vaso.jpg" alt="Vaso Forma 02 in terracotta" /></figure>
+					<div class="product-details">
+						<p class="view-kicker">FILO / CERAMICHE</p>
+						<div class="product-heading"><h2>Forma 02</h2><strong class="price">€ 48,00</strong></div>
+						<p class="muted product-description">Una forma scultorea, modellata a mano.</p>
+						<div class="product-purchase"><p class="muted">Terracotta · pezzo artigianale</p><button type="button" disabled tabindex="-1">Aggiungi al carrello</button><small class="concept-note">Negozio online · concept dimostrativo</small></div>
+					</div>
+				</div>
+			</article>
+			<article class="view view-art" data-view="2" aria-label="Concept sito per la mostra Segni di luce">
+				<header><b>SPAZIO FORMA</b><nav>Mostra　 Spazio　 Visita</nav><small>TORINO · 2026</small></header>
+				<div class="art-content">
+					<figure class="art-image"><img class="exhibition-photo" src="/images/spazio-forma-mostra.jpg" alt="Dipinto astratto esposto in una galleria" /></figure>
+					<div class="art-copy">
+						<h2>Segni<br /><em>di luce.</em></h2>
+						<p>Una mostra immaginaria sull'incontro tra colore, spazio e materia.</p>
+						<p class="view-kicker">MOSTRA TEMPORANEA · 12 SET — 28 NOV 2026</p>
+						<span class="art-link-label">Scopri la mostra　↗</span>
+						<small class="concept-note">Sito vetrina · concept dimostrativo</small>
+					</div>
+				</div>
+			</article>
+		</div>
+		<div class="screen-footer"><span>CONCEPT · DATI E NOMI DI FANTASIA</span><div class="motion-captions" aria-hidden="true"><span data-caption="0">01 <span>Gestionale</span></span><span data-caption="1">02 <span>Ecommerce</span></span><span data-caption="2">03 <span>Sito web</span></span></div></div>
+	</div>
+	<div class="laptop-base" aria-hidden="true"></div>
+</div>
+
+<style>
+	.view-admin {
+		--app-muted: #646866;
+		--app-panel: #edf0ed;
+		--app-ground: #f3f5f2;
+		--app-ink: #252d29;
+		display: block;
+		background: var(--app-ground);
+		color: var(--app-ink);
+	}
+	.admin-header {height: 58px; display: flex; align-items: center; gap: 28px; padding: 0 24px; background: var(--surface);}
+	.admin-logo {font-size: 26px; letter-spacing: -.04em;}
+	.admin-logo span {color: var(--brand);}
+	.admin-header nav {display: flex; gap: 5px; font-size: 12px; color: var(--app-muted);}
+	.admin-header nav span {padding: 9px 12px; border-radius: 6px;}
+	.admin-header .selected {background: var(--brand-tint); color: var(--brand); font-weight: 500;}
+	.admin-search {margin-left: auto; display: flex; align-items: center; gap: 8px; width: 180px; padding: 9px 12px; border-radius: 6px; background: var(--app-ground); color: var(--app-muted); font-size: 11px;}
+	.admin-search svg, .order-filter svg, .order-detail button svg {width: 16px; height: 16px; flex-shrink: 0;}
+	.admin-avatar {display: grid; place-items: center; width: 29px; height: 29px; border-radius: 50%; background: var(--app-panel); font-size: 10px;}
+	.admin-main {position: relative; height: calc(100% - 58px); min-width: 0; padding: 22px 24px 12px;}
+	.admin-overview {display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 22px;}
+	.admin-greeting {margin: 0;}
+	.admin-greeting h2 {font-size: 26px; line-height: 1.1; letter-spacing: -.035em;}
+	.admin-greeting .muted {margin: 7px 0 0; color: var(--app-muted); font-size: 12px;}
+	.stats {display: flex; gap: 22px; margin: 0; padding: 0;}
+	.stats > div {display: flex; align-items: center; gap: 9px; min-height: 0; padding: 0; border: 0; border-radius: 0;}
+	.stats strong {margin: 0; font-size: 27px; font-weight: 500; line-height: 1; font-variant-numeric: tabular-nums;}
+	.stats small, .stats em {display: block; font-size: 10px; line-height: 1.5; font-style: normal; white-space: nowrap;}
+	.stats small {color: var(--app-ink); font-weight: 500;}
+	.stats em {color: var(--app-muted);}
+	.admin-workspace {display: grid; grid-template-columns: minmax(0, 1fr) 284px; gap: 18px; align-items: start;}
+	.orders {min-width: 0; padding: 18px; border-radius: 10px; background: var(--surface);}
+	.orders-heading {display: flex; align-items: baseline; justify-content: space-between; gap: 12px;}
+	.orders h3 {margin: 0; font-size: 23px; font-weight: 500; letter-spacing: -.025em;}
+	.orders-heading > span {font-size: 10px; color: var(--app-muted); white-space: nowrap;}
+	.orders-toolbar {display: flex; align-items: center; gap: 18px; height: 47px; font-size: 11px; color: var(--app-muted);}
+	.orders-toolbar .selected {color: var(--brand); font-weight: 500;}
+	.order-filter {display: flex; align-items: center; gap: 4px; margin-left: auto;}
+	.orders table {width: 100%; border-collapse: collapse; text-align: left; font-size: 12px; font-variant-numeric: tabular-nums;}
+	.orders th {padding: 9px 10px; background: var(--app-ground); color: var(--app-muted); font-size: 10px; font-weight: 400;}
+	.orders td {height: 54px; padding: 10px; border-bottom: 1px solid var(--app-panel);}
+	.orders td:first-child {width: 17%; color: var(--app-muted);}
+	.orders td:nth-child(2) {font-weight: 500;}
+	.orders td:last-child {width: 28%;}
+	.order-status {display: inline-flex; align-items: center; gap: 5px; padding: 5px 7px; border-radius: 4px; font-size: 9px; white-space: nowrap;}
+	.order-status::before {content: ""; width: 5px; height: 5px; flex-shrink: 0; border-radius: 50%; background: currentColor;}
+	.status-working {background: #f4ebd8; color: #715318;}
+	.status-new {background: #e8edf4; color: #385578;}
+	.status-ready {background: #e8efe9; color: #3d6546;}
+	.order-detail {padding: 18px; border-radius: 10px; background: var(--surface);}
+	.detail-heading {display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 11px; color: var(--app-muted);}
+	.detail-heading b {color: var(--app-ink); font-weight: 500;}
+	.order-detail h4 {margin: 18px 0; font-size: 25px; line-height: 1.1; font-weight: 500; letter-spacing: -.03em;}
+	.order-detail dl {display: grid; gap: 9px; margin: 0; font-size: 11px;}
+	.order-detail dl > div {display: flex; justify-content: space-between; gap: 8px;}
+	.order-detail dt {color: var(--app-muted);}
+	.order-detail dd {margin: 0;}
+	.order-progress {display: flex; justify-content: space-between; gap: 6px; padding: 14px 10px; margin: 20px 0; list-style: none; background: var(--app-ground); border-radius: 6px; color: var(--app-muted); font-size: 9px;}
+	.order-progress li {display: flex; flex-direction: column; gap: 8px; align-items: flex-start;}
+	.order-progress li::before {content: ""; width: 7px; height: 7px; border-radius: 50%; border: 1px solid currentColor;}
+	.order-progress .complete::before {background: var(--app-muted);}
+	.order-progress .current {color: var(--brand); font-weight: 500;}
+	.order-progress .current::before {background: var(--brand);}
+	.order-detail button {display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 38px; padding: 8px 12px; border: 0; border-radius: 5px; background: var(--brand); color: var(--surface); font-size: 12px;}
+	.admin-footnote {display: flex; justify-content: space-between; margin: 14px 0 0; color: var(--app-muted); font-size: 9px; text-transform: lowercase;}
+	.admin-footnote::first-letter {text-transform: uppercase;}
+
+	.view-shop > header, .view-art > header {height: 56px; padding: 0 28px; border: 0;}
+	.view-shop header > b {font-size: 26px; letter-spacing: -.03em;}
+	.view-shop header nav, .view-art header nav, .view-art header small {font-size: 12px;}
+	.shop-content {height: calc(100% - 56px); grid-template-columns: 56% minmax(0, 1fr); align-items: stretch; gap: 0; padding: 0;}
+	.product-image {margin: 0; overflow: hidden;}
+	.product-photo {display: block; width: 100%; height: 100%; min-height: 0; max-height: none; object-fit: cover; object-position: 50% 15%; border-radius: 0;}
+	.product-details {display: flex; flex-direction: column; justify-content: center; padding: 30px;}
+	.product-details .view-kicker {order: 2; margin: 6px 0 0; font-size: 11px; font-weight: 400; letter-spacing: 0; color: #545454;}
+	.product-heading {order: 0;}
+	.product-heading h2 {font-size: 52px; font-weight: 500; line-height: 1.05; letter-spacing: -.04em;}
+	.product-heading .price {display: block; margin-top: 15px; font-size: 23px; font-weight: 400; font-variant-numeric: tabular-nums;}
+	.product-details .product-description {order: 1; max-width: 27ch; margin: 19px 0 0; font-size: 16px; line-height: 1.5; color: #242424;}
+	.product-purchase {order: 3; margin-top: 30px;}
+	.product-purchase .muted {margin: 0 0 12px; color: #545454; font-size: 12px;}
+	.product-purchase button {width: 100%; margin: 0; border-radius: 0; font-size: 14px;}
+	.product-purchase .concept-note {margin-top: 12px; color: #545454; font-size: 10px; white-space: normal;}
+
+	.view-art > header b {font-size: 15px; font-weight: 500; letter-spacing: -.02em;}
+	.art-content {height: calc(100% - 56px); grid-template-columns: 44% minmax(0, 1fr); align-items: stretch; gap: 0; padding: 0;}
+	.art-image {grid-column: 2; grid-row: 1; margin: 0; overflow: hidden;}
+	.exhibition-photo {display: block; width: 100%; height: 100%; min-height: 0; max-height: none; object-fit: cover; object-position: 48% 50%; border-radius: 0;}
+	.art-copy {grid-column: 1; grid-row: 1; display: flex; flex-direction: column; align-items: flex-start; padding: 25px 28px;}
+	.art-copy h2 {margin: 0; font-size: 91px; line-height: .9; letter-spacing: -.04em; font-weight: 500;}
+	.art-copy h2 em {font: inherit;}
+	.art-copy > p:not(.view-kicker) {max-width: 29ch; margin: 22px 0 0; color: #242424; font-size: 14px; line-height: 1.5;}
+	.art-copy .view-kicker {max-width: 30ch; margin: auto 0 16px; color: #545454; font-size: 11px; line-height: 1.5; letter-spacing: 0; font-weight: 400; text-transform: lowercase;}
+	.art-copy .view-kicker::first-letter {text-transform: uppercase;}
+	.art-link-label {margin: 0; padding: 0; border: 0; color: var(--brand); font-size: 14px; font-weight: 500;}
+	.art-copy .concept-note {margin-top: 9px; color: #545454; font-size: 10px;}
+
+	@media (max-width: 640px) {
+		.admin-header {height: 46px; gap: 12px; padding: 0 12px;}
+		.admin-logo {font-size: 22px;}
+		.admin-header nav {gap: 0; margin-left: auto; font-size: 9px;}
+		.admin-header nav span {padding: 7px 6px;}
+		.admin-header nav span:first-child, .admin-search {display: none;}
+		.admin-avatar {width: 23px; height: 23px; font-size: 8px;}
+		.admin-main {height: calc(100% - 46px); padding: 15px 12px;}
+		.admin-overview {display: block; margin: 0 0 16px;}
+		.admin-greeting h2 {font-size: 23px;}
+		.admin-greeting .muted {margin-top: 5px; font-size: 11px;}
+		.stats {justify-content: space-between; gap: 8px; margin: 16px 0 0; padding: 0;}
+		.stats > div {display: flex; gap: 7px; min-height: 0; padding: 0;}
+		.stats > div:last-child {min-height: 0;}
+		.stats strong {margin: 0; font-size: 24px;}
+		.stats small {font-size: 9px;}
+		.stats em {font-size: 7px;}
+		.admin-workspace {display: block;}
+		.orders {padding: 12px; border-radius: 8px;}
+		.orders h3 {margin: 0; font-size: 19px;}
+		.orders-heading > span {display: none;}
+		.orders-toolbar {height: 38px; gap: 10px; font-size: 9px;}
+		.order-filter svg {width: 13px; height: 13px;}
+		.orders table {font-size: 10px;}
+		.orders th {padding: 8px 4px; font-size: 9px;}
+		.orders td {height: 45px; padding: 8px 4px;}
+		.orders td:first-child {width: 16%; font-size: 9px;}
+		.orders td:last-child {width: 29%;}
+		.order-status {gap: 4px; padding: 5px; font-size: 8px;}
+		.order-status::before {width: 4px; height: 4px;}
+		.order-detail {position: absolute; z-index: 1; bottom: 12px; left: 12px; right: 12px; padding: 13px; border-radius: 10px; box-shadow: 0 -8px 22px #252d291a;}
+		.detail-heading {font-size: 10px;}
+		.order-detail h4 {margin: 9px 0; font-size: 22px;}
+		.order-detail dl {display: none;}
+		.order-progress {margin: 10px 0; padding: 9px 10px; font-size: 9px;}
+		.order-progress li {flex-direction: row; align-items: center; gap: 5px;}
+		.order-progress li::before {width: 5px; height: 5px;}
+		.order-detail button {min-height: 32px; padding: 6px 10px; font-size: 11px;}
+		.admin-footnote {font-size: 7px;}
+		.admin-footnote > span {max-width: 150px; text-align: right;}
+
+		.view-shop > header, .view-art > header {height: 44px; padding: 0 14px;}
+		.view-shop header > b {font-size: 23px;}
+		.view-shop header nav {font-size: 10px;}
+		.shop-content {height: calc(100% - 44px); grid-template-columns: 1fr; grid-template-rows: 240px minmax(0, 1fr); gap: 0; padding: 0;}
+		.product-photo {height: 240px; object-position: 50% 15%;}
+		.product-details {justify-content: flex-start; padding: 15px 16px;}
+		.product-heading {display: flex; justify-content: space-between; align-items: baseline; gap: 8px;}
+		.product-heading h2 {font-size: 33px;}
+		.product-heading .price {margin: 0; font-size: 19px; white-space: nowrap;}
+		.product-details .product-description {max-width: none; margin: 7px 0 0; font-size: 12px;}
+		.product-details .view-kicker {margin-top: 4px; font-size: 9px;}
+		.product-purchase {margin-top: 12px;}
+		.product-purchase .muted {display: inline-block; margin: 0 0 8px; font-size: 10px;}
+		.product-purchase button {min-height: 40px; margin: 0; font-size: 12px;}
+		.product-purchase .concept-note {margin-top: 7px; font-size: 8px;}
+
+		.view-art > header b {font-size: 12px;}
+		.view-art header small {font-size: 9px;}
+		.art-content {position: relative; display: grid; height: calc(100% - 44px); grid-template-columns: 1fr; grid-template-rows: 195px 1fr; padding: 0; gap: 0;}
+		.art-copy {position: absolute; inset: 0; display: block; padding: 0;}
+		.art-copy h2 {position: absolute; top: 12px; left: 16px; margin: 0; font-size: 63px; line-height: .9;}
+		.art-copy .view-kicker {position: absolute; top: 142px; left: 16px; max-width: 32ch; margin: 0; font-size: 10px; line-height: 1.4;}
+		.art-image {grid-column: 1; grid-row: 2; margin: 0 16px 78px;}
+		.exhibition-photo {height: 100%; object-position: 50% 48%;}
+		.art-copy > p:not(.view-kicker) {position: absolute; bottom: 17px; left: 16px; width: 170px; margin: 0; font-size: 10px; line-height: 1.4;}
+		.art-link-label {position: absolute; right: 16px; bottom: 42px; margin: 0; font-size: 9px;}
+		.art-copy .concept-note {position: absolute; right: 16px; bottom: 17px; width: 90px; margin: 0; text-align: right; font-size: 8px; line-height: 1.4;}
+	}
+</style>

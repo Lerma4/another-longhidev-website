@@ -33,7 +33,7 @@ const mobile = Astro.params.format === "mobile";
 			};
 			const scenes = [...document.querySelectorAll("[data-view]")];
 			const captions = [...document.querySelectorAll("[data-caption]")];
-			const detailSelectors = [".stats > div, .table > div", ".product-photo, .shop-content > div", ".exhibition-photo, .art-copy"];
+			const detailSelectors = [".stats > div, .order-row", ".product-photo, .shop-content > div", ".exhibition-photo, .art-copy"];
 			scenes.forEach((scene, index) => {
 				const start = index === 0 ? 0 : index * 6 - .55;
 				timeline.set(scene, { opacity: index === 0 ? 1 : 0, xPercent: index === 0 ? 0 : 12, scale: index === 0 ? 1 : .96 }, 0);
@@ -55,11 +55,20 @@ const mobile = Astro.params.format === "mobile";
 			const orderCount = document.querySelector(".stats strong");
 			timeline.set(orderCount, { textContent: "24" }, 0);
 			timeline.to(orderCount, { textContent: 25, snap: { textContent: 1 }, duration: .5, ease: "power2.out" }, 1.5);
-			timeline.set(".table > div", { x: 16, opacity: 0 }, 0);
-			timeline.to(".table > div", { x: 0, opacity: 1, stagger: .1, duration: .6, ease: "power3.out" }, .2);
+			timeline.set(".order-row", { x: 16, opacity: 0 }, 0);
+			timeline.to(".order-row", { x: 0, opacity: 1, stagger: .1, duration: .6, ease: "power3.out" }, .2);
+			// Select the same order shown in the contextual panel; keep every seek reversible.
+			const orderDetail = document.querySelector(".order-detail");
+			const selectedOrder = document.querySelector("[data-order-focus]");
+			timeline.set(orderDetail, { x: 28, opacity: 0 }, 0);
+			timeline.set(selectedOrder, { backgroundColor: "transparent" }, 0);
+			timeline.set(selectedOrder, { backgroundColor: "#f2e9ea" }, 1.1);
+			timeline.to(orderDetail, { x: 0, opacity: 1, duration: .35, ease: "power3.out" }, 1.1);
 			// Reset under the hidden first scene, before it returns across the loop seam.
-			timeline.set(".table > div", { x: 16, opacity: 0 }, 17.4);
+			timeline.set(".order-row", { x: 16, opacity: 0 }, 17.4);
 			timeline.set(orderCount, { textContent: "24" }, 17.4);
+			timeline.set(orderDetail, { x: 28, opacity: 0 }, 17.4);
+			timeline.set(selectedOrder, { backgroundColor: "transparent" }, 17.4);
 			const cartButton = document.querySelector(".shop-content button");
 			const cartCount = document.querySelector("[data-cart-count]");
 			timeline.set(cartButton, { textContent: "Aggiungi al carrello" }, 0);

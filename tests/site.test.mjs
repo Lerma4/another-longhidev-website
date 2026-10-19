@@ -13,10 +13,10 @@ const composition = await read("../src/pages/motion/[format].astro");
 test("home embeds a non-interactive HyperFrames film and keeps the contact form", () => {
 	assert.match(html, /<html lang="it">/);
 	assert.match(html, /P\. IVA 02644100063/);
-	assert.match(html, /href="#lavoro">Lavoro<\/a>/);
-	assert.match(html, /href="#contatto">Cominciamo<\/a>/);
+	assert.match(html, /class="hero-film" id="lavoro"/);
+	assert.match(html, /class="site-header" href="#contatto" aria-label="Parliamone/);
 	assert.match(html, /Sviluppo software/);
-	assert.match(html, /gestionali, ecommerce e siti web/);
+	assert.match(html, /gestionali che semplificano il tuo lavoro; ecommerce che fanno crescere il tuo lavoro; siti web che valorizzano il tuo lavoro/);
 	assert.match(html, /<hyperframes-player[^>]*loop[^>]*muted[^>]*disable-click-to-play/);
 	assert.match(html, /runtime-src="\/vendor\/hyperframes\/runtime-0\.8\.171\.js"/);
 	assert.match(html, /Metti in pausa l’animazione/);
@@ -25,7 +25,7 @@ test("home embeds a non-interactive HyperFrames film and keeps the contact form"
 	assert.match(playback, /IntersectionObserver/);
 	assert.match(playback, /document\.hidden/);
 	assert.match(playback, /player\.pause\(\)/);
-	assert.match(playback, /displayedTerm === text/);
+	assert.match(playback, /word\.dataset\.text === text/);
 	assert.match(playback, /letter\.animate/);
 	assert.match(playback, /delay: index \* 28/);
 	assert.match(html, /class="hero-stage"/);
@@ -41,8 +41,15 @@ test("home embeds a non-interactive HyperFrames film and keeps the contact form"
 test("both composition formats have three scenes and one finite seekable timeline", () => {
 	for (const film of [desktop, mobile]) {
 		assert.match(film, /data-composition-id="hero-motion"/);
-		assert.match(film, /data-duration="9"/);
+		assert.match(film, /data-duration="12"/);
 		assert.match(film, /data-view="0"[\s\S]*?Ordini recenti/);
+		assert.equal((film.match(/class="order-row"/g) ?? []).length, 3);
+		assert.match(film, /<thead[\s\S]*?Ordine[\s\S]*?Articolo[\s\S]*?Stato/);
+		assert.match(film, /class="art-image"/);
+		assert.match(film, /class="admin-header"/);
+		assert.match(film, /class="order-detail"/);
+		assert.match(film, /data-order-focus/);
+		assert.doesNotMatch(film, /<aside/);
 		assert.match(film, /data-view="1"[\s\S]*?Forma 02[\s\S]*?€ 48,00/);
 		assert.match(film, /data-view="2"[\s\S]*?Segni[\s\S]*?di luce\./);
 		assert.match(film, /DATI E NOMI DI FANTASIA/);
@@ -53,7 +60,7 @@ test("both composition formats have three scenes and one finite seekable timelin
 	assert.match(mobile, /data-width="390" data-height="720"/);
 	assert.equal((composition.match(/gsap\.timeline\(/g) ?? []).length, 2);
 	assert.match(composition, /const sequence = gsap\.timeline\(\{ paused: true \}\)/);
-	assert.match(composition, /master\.to\(sequence, \{ progress: 1, duration: 9, ease: "none" \}/);
+	assert.match(composition, /master\.to\(sequence, \{ progress: 1, duration: 12, ease: "none" \}/);
 	assert.match(composition, /__timelines\["hero-motion"\] = master/);
 	assert.doesNotMatch(composition, /setInterval|Math\.random|timeline\.play\(/);
 });
