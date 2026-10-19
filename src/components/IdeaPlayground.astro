@@ -1,0 +1,128 @@
+---
+const motions = [
+	["wave", "Onda"], ["marquee", "Scorri"], ["float", "Fluttua"], ["rotate", "Ruota"],
+	["pulse", "Pulsa"], ["scatter", "Scomponi"], ["orbit", "Orbita"], ["glitch", "Glitch"],
+	["type", "Scrivi"], ["none", "Ferma"],
+];
+const ranges = [
+	["speed", "Velocità", 0, 2, 0.05, 0.5],
+	["intensity", "Intensità", 0, 1, 0.05, 0.6],
+	["size", "Dimensione", 32, 200, 1, 110],
+	["spacing", "Spaziatura", -4, 20, 1, 0],
+	["leading", "Interlinea", 0.9, 1.8, 0.05, 1.1],
+	["rotation", "Rotazione", -25, 25, 1, 0],
+] as const;
+---
+<section class="idea-section" id="la-tua-idea" aria-labelledby="idea-title">
+	<header class="idea-header">
+		<div><h2 id="idea-title">La tua idea, al centro.</h2><p>Tu immagini. Insieme le diamo forma.</p></div>
+		<button type="button" class="idea-center" data-idea-center hidden><span>Centra il playground</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M8 12h8m-4-4v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+	</header>
+	<div class="idea-stage">
+		<canvas aria-label="Anteprima animata della tua idea. Modifica il testo e lo stile dal pannello comandi." hidden></canvas>
+		<p class="idea-fallback">LA TUA IDEA.<br />A MODO TUO.</p>
+		<p class="idea-stage-hint" hidden>Scrivi. Trascina. Sperimenta.</p>
+	</div>
+	<aside class="idea-panel" aria-label="Comandi del playground" hidden>
+		<button type="button" class="idea-panel-toggle" aria-expanded="false" aria-controls="idea-controls"><span>Personalizza la tua idea</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 15 6-6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+		<div class="idea-panel-body" id="idea-controls">
+			<form class="idea-tools">
+				<div class="idea-actions">
+					<div class="idea-actions-main">
+						<button type="button" data-idea-random class="idea-primary">Sorprendimi <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M6 5h13v13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+						<button type="reset">Ripristina</button><button type="button" data-idea-pause aria-pressed="false">Pausa</button>
+					</div>
+					<div class="idea-actions-secondary">
+						<button type="button" data-idea-fullscreen>Schermo intero</button><button type="button" data-idea-export>Salva PNG</button>
+					</div>
+				</div>
+				<label class="idea-field">Il tuo testo <textarea name="text" rows="2" maxlength="120" spellcheck="false">LA TUA IDEA.
+A MODO TUO.</textarea></label>
+				<label class="idea-field">Font<select name="font"><option value="'Outfit Variable', sans-serif">Outfit</option><option value="Georgia">Georgia</option><option value="system-ui">Sistema</option></select></label>
+				<fieldset><legend>Movimento</legend><div class="idea-presets">{motions.map(([value, label]) => <label><input type="radio" name="motion" value={value} checked={value === "wave"} /><span>{label}</span></label>)}</div></fieldset>
+				{ranges.map(([name, label, min, max, step, value]) => <label class="idea-field idea-range"><span>{label}<output data-value={name}>{value}{name === "rotation" ? "°" : ""}</output></span><input type="range" name={name} min={min} max={max} step={step} value={value} /></label>)}
+				<label class="idea-field">Direzione<select name="direction"><option value="1">Verso destra</option><option value="-1">Verso sinistra</option></select></label>
+				<fieldset><legend>Colore del testo</legend><div class="idea-swatches">{[["#6b0911", "Bordeaux"], ["#242424", "Grafite"], ["#235347", "Bosco"], ["#254f80", "Blu"]].map(([value, label]) => <label style={`--swatch:${value}`}><input type="radio" name="color" value={value} checked={value === "#6b0911"} /><span class="sr-only">{label}</span></label>)}</div></fieldset>
+				<fieldset><legend>Sfondo</legend><div class="idea-swatches">{[["#f7f7f4", "Chiaro"], ["#f2e9ea", "Rosato"], ["#242424", "Scuro"]].map(([value, label]) => <label style={`--swatch:${value}`}><input type="radio" name="background" value={value} checked={value === "#f7f7f4"} /><span class="sr-only">{label}</span></label>)}</div></fieldset>
+				<p class="idea-note" role="status" aria-live="polite">Solo una prova: niente viene salvato o inviato.</p>
+			</form>
+		</div>
+	</aside>
+</section>
+<style>
+	.idea-section{--play-surface:var(--canvas);font-family:'Outfit Variable',sans-serif;display:grid;grid-template-columns:minmax(0,1fr) 310px;grid-template-rows:auto minmax(0,1fr);height:100svh;min-height:600px;max-height:1100px;background:var(--play-surface);isolation:isolate;scroll-margin-top:0}
+	.idea-header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 36px;background:var(--canvas)}
+	.idea-header h2{margin:0;font-size:clamp(22px,2.4vw,30px);font-weight:500;line-height:1.1;letter-spacing:-.035em}
+	.idea-header p{margin:7px 0 0;color:var(--gray);font-size:14px}
+	.idea-section button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;min-height:44px;font:inherit;cursor:pointer}
+	.idea-section svg{width:18px;height:18px;flex-shrink:0}
+	.idea-center{background:var(--brand-tint);color:var(--brand);padding:10px 16px;border-radius:999px;font-size:13px!important}
+	.idea-stage{position:relative;min-width:0;min-height:0;overflow:hidden;background:var(--play-surface)}
+	.idea-stage canvas{position:absolute;width:100%;height:100%;inset:0;touch-action:pan-y;cursor:grab}
+	.idea-stage canvas:active{cursor:grabbing}
+	.idea-fallback{position:absolute;inset:0;display:grid;align-content:center;margin:0;padding:24px;font-size:clamp(38px,7vw,96px);line-height:1.05;color:var(--brand)}
+	.idea-stage-hint{position:absolute;bottom:20px;left:36px;margin:0;color:var(--gray);font-size:13px;pointer-events:none}
+	.idea-panel{min-height:0;min-width:0;display:flex;flex-direction:column;background:var(--brand-tint)}
+	.idea-panel-body{overflow-y:auto;overscroll-behavior:contain;min-height:0;scrollbar-width:thin;scrollbar-color:#bda6a9 transparent;padding:24px 24px 64px;mask-image:linear-gradient(to bottom,#000 calc(100% - 28px),transparent)}
+	.idea-tools{display:grid;gap:24px}
+	.idea-actions{display:grid;gap:6px}
+	.idea-actions-main{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px}
+	.idea-actions-secondary{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+	.idea-actions button{padding:8px;background:var(--canvas);color:var(--brand);border-radius:999px;font-size:12px;white-space:nowrap;gap:6px}
+	.idea-actions svg{width:14px;height:14px}
+	.idea-actions [data-idea-pause]{min-width:64px}
+	.idea-actions .idea-primary,.idea-actions button[aria-pressed=true]{background:var(--brand);color:white}
+	.idea-field{display:grid;gap:10px;font-size:13px}
+	.idea-field>span{display:flex;align-items:center;justify-content:space-between;gap:12px}
+	.idea-field output{font-variant-numeric:tabular-nums;color:var(--gray)}
+	.idea-field :is(textarea,select){width:100%;max-width:100%;min-height:44px;padding:10px 12px;border:0;border-radius:5px;background:var(--canvas);color:#242424;font:inherit;font-size:16px;line-height:1.4}
+	.idea-field textarea{resize:vertical;min-height:76px;max-height:180px}
+	.idea-range input{width:100%;height:32px;margin:0;accent-color:var(--brand);cursor:pointer}
+	.idea-tools fieldset{border:0;padding:0;margin:0;min-width:0}
+	.idea-tools legend{font-size:13px;padding:0;margin-bottom:12px}
+	.idea-presets{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+	.idea-presets label{position:relative;cursor:pointer}
+	.idea-presets input{position:absolute;opacity:0;width:100%;height:100%;margin:0}
+	.idea-presets span{display:flex;align-items:center;min-height:40px;padding:8px 12px;border-radius:5px;background:var(--canvas);font-size:13px}
+	.idea-presets input:checked+span{background:var(--brand);color:white}
+	.idea-presets input:focus-visible+span{outline:2px solid var(--brand);outline-offset:2px}
+	.idea-swatches{display:flex;gap:6px}
+	.idea-swatches label{position:relative;display:grid;place-items:center;width:44px;height:44px;cursor:pointer}
+	.idea-swatches input{appearance:none;width:28px;height:28px;border:4px solid var(--brand-tint);border-radius:50%;background:var(--swatch);margin:0;cursor:pointer}
+	.idea-swatches input:checked{outline:2px solid var(--brand)}
+	.idea-note{margin:0;font-size:12px;color:var(--gray);line-height:1.5}
+	.idea-section :is(button,textarea,select,input):focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+	.idea-section ::selection{background:var(--brand);color:white}
+	.idea-panel-toggle{display:none!important}
+	.idea-section [hidden]{display:none!important}
+	.idea-section:fullscreen{max-height:none;width:100%;height:100dvh}
+	:global(.site-header){transition:transform 550ms cubic-bezier(.23,1,.32,1)}
+	:global(body.idea-in-view .site-header){transform:translate(calc(-50vw + clamp(18px,5vw,72px) + 71px),-40px) scale(.74)}
+	@media(min-width:641px){:global(body.logo-centered .site-header){transform:translate(calc(-50vw + clamp(18px,5vw,72px) + 71px),-40px) scale(.74)}}
+	@media(min-width:900px){.idea-panel{mask-image:linear-gradient(to bottom,#000 calc(100% - 40px),transparent)}}
+	@media(hover:hover) and (pointer:fine){.idea-section button:hover{filter:brightness(.94)}.idea-presets label:hover span{outline:1px solid var(--brand)}}
+	@media(max-width:899px){
+		.idea-section{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;height:100svh;min-height:500px;max-height:none}
+		.idea-header{padding:20px;gap:16px;align-items:flex-start}
+		.idea-header h2{font-size:24px;max-width:220px}
+		.idea-header p{font-size:13px;max-width:230px;line-height:1.4}
+		.idea-section .idea-center{display:grid;width:44px;height:44px;min-width:44px;font-size:0!important;padding:0;margin:0;gap:0;place-items:center}
+		.idea-center span{display:none}
+		.idea-center svg{width:20px;height:20px}
+		.idea-panel{grid-row:3;padding-bottom:env(safe-area-inset-bottom,0px)}
+		.idea-panel-toggle{display:flex!important;justify-content:space-between!important;width:100%;padding:16px 20px;background:var(--brand-tint);color:var(--brand);font-size:14px!important}
+		.idea-panel-toggle svg{transition:transform 250ms cubic-bezier(.32,.72,0,1)}
+		.idea-panel-toggle[aria-expanded=true] svg{transform:rotate(180deg)}
+		.idea-panel-body{max-height:0;padding:0 20px;visibility:hidden;transition:max-height 250ms cubic-bezier(.32,.72,0,1),visibility 250ms}
+		.idea-panel.is-open .idea-panel-body{max-height:43svh;visibility:visible}
+		.idea-tools{padding:8px 0 48px;gap:22px}
+		.idea-range input{height:44px}
+		.idea-presets span{min-height:44px}
+		.idea-stage-hint{bottom:16px;left:20px;font-size:12px}
+	}
+	@media(max-width:640px){
+		:global(body.idea-in-view .site-header){transform:translateY(calc(-1 * var(--idea-controls-height,56px) - 16px)) scale(.9)}
+	}
+	@media(prefers-reduced-motion:reduce){.idea-panel-body,.idea-panel-toggle svg,:global(.site-header){transition:none}}
+</style>
+<script>import "../scripts/idea-playground";</script>
