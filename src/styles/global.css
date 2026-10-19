@@ -112,6 +112,7 @@
 .site-footer nav a:focus-visible{outline:2px solid var(--brand);outline-offset:5px;border-radius:2px}
 .site-footer nav a:active{color:var(--brand)}
 @media(max-width:640px){
- .site-footer{width:calc(100% - 28px);margin-top:28px;padding:22px 8px calc(112px + env(safe-area-inset-bottom,0px));align-items:flex-start;flex-direction:column;gap:12px}
+ .site-footer{width:calc(100% - 28px);margin-top:28px;padding:22px 8px calc(24px + env(safe-area-inset-bottom,0px));align-items:flex-start;flex-direction:column;gap:12px}
  .site-footer nav{gap:8px 24px}
 }
+@media(max-width:360px){.site-footer nav{flex-direction:column;gap:0}}
