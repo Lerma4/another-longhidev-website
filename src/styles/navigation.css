@@ -1,0 +1,17 @@
+@view-transition{navigation:auto}
+
+:root{--ease-out:cubic-bezier(.23,1,.32,1)}
+.site-header{view-transition-name:contact-button}
+::view-transition-group(*){animation-duration:240ms;animation-timing-function:var(--ease-out)}
+::view-transition-old(root){animation:page-out 180ms var(--ease-out) both}
+::view-transition-new(root){animation:page-in 240ms var(--ease-out) both}
+@keyframes page-out{to{opacity:0}}
+@keyframes page-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* Anchor destinations must not wait for the offscreen hero film. */
+html:has(#contatto:target,#portfolio:target) .page-loader{display:none}
+
+@media(prefers-reduced-motion:reduce){
+	@view-transition{navigation:none}
+	::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none}
+}

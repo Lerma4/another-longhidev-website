@@ -38,6 +38,14 @@ The page uses Italian language metadata, semantic landmarks, a skip link, and vi
 
 The product photo, generated gallery photo, logo, font, player, and GSAP are served locally. HyperFrames runtime 0.8.171 is vendored from `@hyperframes/core` in `public/vendor/hyperframes/` with its MIT license; update that file deliberately alongside the player version. No remote CDN is required for playback.
 
+## Project case studies
+
+The first portfolio card opens `/progetti/filo/`; the other two remain previews. Project data lives in `src/data/projects.ts`. One prerendered dynamic route and `ProjectLayout.astro` assemble shared hero, story, and gallery components. Adding case-study content publishes a project without duplicating its page layout.
+
+The composition takes structural cues from the Two26 HeyGluco case study: a large visual introduction, contextual metadata beside the project narrative, a wide interface showcase, and a closing invitation. LonghiDev retains its own Outfit typography, burgundy, rose-tinted fields, and light canvas. The hero pairs an oversized title with the existing product photograph; on phones the title precedes the photograph. There is no header bar: a fixed back-to-portfolio pill sits at left, while the exact home contact mark is shared through `ContactButton.astro` at right (bottom-right on phones, matching the home). Mobile hero copy leaves room for the back control. Native cross-document View Transitions bridge home and project navigation in 180–240ms, retaining the contact mark as a shared visual element. Hover and press feedback use small, interruptible transforms. Reduced-motion preferences disable page travel; unsupported browsers retain standard navigation. Anchor returns bypass the offscreen film’s page loader. No client-side router or extra animation dependency is required.
+
+Filo is explicitly an independent concept, not client work or an active shop. Its gallery reuses the existing product photograph and interface preview. No commercial results or external launch link are claimed. The footer is now shared across the home, legal pages, and project pages.
+
 ## Current limits
 
 The art exhibition, product shop, management tool, names, dates, and data are fictional concepts. The cart remains a local demonstration; the contact form submits actual inquiries.

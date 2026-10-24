@@ -18,6 +18,14 @@ Built with Astro, TypeScript, `@hyperframes/player`, GSAP, and the self-hosted O
 - `npm run build` — build the site and standalone Node server
 - `npm test` — run the contact boundary tests and built-page content check; run `npm run build` first
 
+## Project pages
+
+Project cards and case studies share typed data in `src/data/projects.ts`. Only Filo currently has a detail page at `/progetti/filo/`.
+
+To publish another case study, add its `caseStudy` content to the project entry. The dynamic route `src/pages/progetti/[slug].astro` prerenders published entries, links them from the portfolio, and includes them in the sitemap. No new page template is needed.
+
+`ProjectLayout.astro` assembles the shared `ProjectHero`, `ProjectStory`, and `ProjectGallery` components. `SiteFooter.astro` is shared with the home and legal pages. Images, copy, services, and metadata come from project data; keep demo projects clearly marked as concepts.
+
 ## Contact intake
 
 The server exposes `POST /api/contact` and calls Windmill's synchronous `f/sales/receive_contact` endpoint. Set `CONTACT_INTAKE_URL` and `CONTACT_INTAKE_TOKEN` as server environment variables (see `.env.example`); never expose them with a `PUBLIC_` prefix. Without both values, the endpoint fails closed with HTTP 503. A successful response requires Windmill's committed receipt `{ "request_id": "<uuid>", "status": "RECEIVED" }`. The browser retains the same `event_id` through retries and only replaces it after that receipt.

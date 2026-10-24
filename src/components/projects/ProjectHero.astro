@@ -1,0 +1,29 @@
+---
+import type { Project } from "../../data/projects";
+interface Props { project: Project }
+const { project } = Astro.props;
+---
+<header class="project-hero">
+	<div class="project-hero-copy">
+		<h1>{project.name}<span aria-hidden="true">.</span></h1>
+		<p class="project-tagline">{project.field}</p>
+		<p class="project-status">{project.service} · Concept {project.year}</p>
+	</div>
+	<img src={project.image} alt={project.alt} width={project.imageWidth} height={project.imageHeight} fetchpriority="high" />
+</header>
+<style>
+	.project-hero{display:grid;grid-template-columns:1fr 1fr;min-height:620px;height:min(900px,100svh);background:var(--brand-tint)}
+	.project-hero-copy{display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;padding:clamp(24px,4vw,64px);color:var(--brand)}
+	h1{margin:0;font-size:clamp(88px,13vw,192px);font-weight:500;line-height:.95;letter-spacing:-.04em;overflow-wrap:anywhere}
+	.project-tagline{max-width:20ch;margin:24px 0 0;font-size:clamp(24px,2.5vw,36px);line-height:1.2;letter-spacing:-.025em;text-wrap:balance}
+	.project-status{margin:64px 0 0;font-size:16px;line-height:1.5}
+	img{display:block;width:100%;height:100%;min-height:0;object-fit:cover}
+	@media(max-width:640px){
+		.project-hero{height:auto;min-height:0;grid-template-columns:1fr}
+		.project-hero-copy{padding:96px 20px 32px}
+		h1{font-size:clamp(80px,22vw,128px)}
+		.project-tagline{max-width:none;margin-top:16px;font-size:24px}
+		.project-status{margin-top:28px}
+		img{height:auto;max-height:62svh;aspect-ratio:4/5;object-position:center 58%}
+	}
+</style>

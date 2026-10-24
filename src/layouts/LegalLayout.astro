@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import SiteFooter from "../components/SiteFooter.astro";
 
 interface Props {
 	title: string;
@@ -26,10 +27,7 @@ const { title, description } = Astro.props;
 			<a class="legal-home" href="/">← Torna al sito</a>
 		</header>
 		<main class="legal-content"><slot /></main>
-		<footer class="site-footer legal-footer">
-			<small>P. IVA 02644100063</small>
-			<nav aria-label="Informazioni legali"><a href="/note-legali/">Note legali</a><a href="/privacy/">Privacy e cookie</a></nav>
-		</footer>
+		<SiteFooter />
 	</body>
 </html>
 
@@ -49,5 +47,5 @@ const { title, description } = Astro.props;
 	.site-footer{padding:20px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
 	.site-footer nav{display:flex;gap:18px;flex-wrap:wrap}
 	.site-footer nav a{font-size:12px}
-	@media(max-width:640px){.legal-header{width:calc(100% - 32px);margin:10px auto}.legal-content{width:calc(100% - 36px);margin:34px auto 60px}.legal-content p,.legal-content li{font-size:14px}.legal-card{padding:16px}.legal-footer{gap:10px}}
+	@media(max-width:640px){.legal-header{width:calc(100% - 32px);margin:10px auto}.legal-content{width:calc(100% - 36px);margin:34px auto 60px}.legal-content p,.legal-content li{font-size:14px}.legal-card{padding:16px}.site-footer{gap:10px}}
 </style>

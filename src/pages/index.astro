@@ -1,5 +1,8 @@
 ---
 import "../styles/global.css";
+import SiteFooter from "../components/SiteFooter.astro";
+import ContactButton from "../components/ContactButton.astro";
+import "../styles/navigation.css";
 import IdeaPlayground from "../components/IdeaPlayground.astro";
 import Portfolio from "../components/Portfolio.astro";
 export const prerender = true;
@@ -22,15 +25,7 @@ export const prerender = true;
 	<body>
 		<div class="page-loader" role="status" aria-live="polite"><svg viewBox="3 4 160 160" aria-hidden="true"><path d="M80 5 Q84 5 87 12 L94 25 Q96 29 100 27 L114 19 Q122 15 122 24 L121 39 Q121 44 126 44 L143 44 Q151 44 147 52 L139 66 Q137 70 141 73 L154 80 Q161 84 154 88 L141 96 Q137 98 139 103 L147 117 Q151 125 143 125 L126 125 Q121 125 121 130 L122 145 Q122 153 114 149 L100 141 Q96 139 94 143 L87 156 Q83 163 79 156 L72 143 Q70 139 66 141 L52 149 Q44 153 44 145 L45 130 Q45 125 40 125 L25 125 Q17 125 21 117 L29 103 Q31 98 27 96 L14 88 Q7 84 14 80 L27 73 Q31 70 29 66 L21 52 Q17 44 25 44 L40 44 Q45 44 45 39 L44 24 Q44 15 52 19 L66 27 Q70 29 72 25Z"/></svg></div>
 		<a class="skip-link" href="#contenuto">Vai al contenuto</a>
-		<a class="site-header" href="#contatto" aria-label="Parliamone — raccontami il tuo progetto" title="Parliamone">
-			<svg class="header-star" viewBox="3 4 160 160" aria-hidden="true"><path d="M80 5 Q84 5 87 12 L94 25 Q96 29 100 27 L114 19 Q122 15 122 24 L121 39 Q121 44 126 44 L143 44 Q151 44 147 52 L139 66 Q137 70 141 73 L154 80 Q161 84 154 88 L141 96 Q137 98 139 103 L147 117 Q151 125 143 125 L126 125 Q121 125 121 130 L122 145 Q122 153 114 149 L100 141 Q96 139 94 143 L87 156 Q83 163 79 156 L72 143 Q70 139 66 141 L52 149 Q44 153 44 145 L45 130 Q45 125 40 125 L25 125 Q17 125 21 117 L29 103 Q31 98 27 96 L14 88 Q7 84 14 80 L27 73 Q31 70 29 66 L21 52 Q17 44 25 44 L40 44 Q45 44 45 39 L44 24 Q44 15 52 19 L66 27 Q70 29 72 25Z" /></svg>
-			<span class="header-content">
-				<img class="header-logo" src="/images/longhidev-logo.png" alt="LonghiDev" />
-				<span class="header-contact" aria-hidden="true">
-					<svg class="paper-plane" viewBox="0 0 24 24" fill="none"><path d="m21 3-6.5 18-4-7.5L3 9.5 21 3Z" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="m10.5 13.5 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-				</span>
-			</span>
-		</a>
+		<ContactButton />
 		<main id="contenuto">
 			<section class="hero" id="inizio" aria-labelledby="hero-title">
 				<div class="hero-copy">
@@ -49,7 +44,7 @@ export const prerender = true;
 			<IdeaPlayground />
 			<Portfolio />
 			<section class="contact-demo" id="contatto" aria-labelledby="contact-title">
-				<div><p class="eyebrow">Facciamo il primo passo</p><h2 id="contact-title">Raccontami il tuo progetto.</h2><p>Il messaggio sarà registrato per poter essere letto e ricevere una risposta. Consulta l’<a href="/privacy/">informativa privacy</a>. In alternativa, scrivi a <a href="mailto:lorenzo.longhi1995@gmail.com">lorenzo.longhi1995@gmail.com</a>.</p></div>
+				<div><p class="eyebrow">Facciamo il primo passo</p><h2 id="contact-title">Raccontami il tuo progetto.</h2><p class="professional-profile">Oltre a LonghiDev, lavoro come sviluppatore in azienda. <a href="https://www.linkedin.com/in/lorenzo-longhi-392a29211/" rel="me">Scopri il mio percorso su LinkedIn</a>.</p><p>Il messaggio sarà registrato per poter essere letto e ricevere una risposta. Consulta l’<a href="/privacy/">informativa privacy</a>. In alternativa, scrivi a <a href="mailto:lorenzo.longhi1995@gmail.com">lorenzo.longhi1995@gmail.com</a>.</p></div>
 				<form id="contact-form">
 					<label>Il tuo nome<input name="name" autocomplete="name" required minlength="2" maxlength="100" /></label>
 					<label>La tua email<input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
@@ -61,10 +56,7 @@ export const prerender = true;
 				</form>
 			</section>
 		</main>
-		<footer class="site-footer">
-			<small>P. IVA 02644100063</small>
-			<nav aria-label="Informazioni legali"><a href="/note-legali/">Note legali</a><a href="/privacy/">Privacy e cookie</a></nav>
-		</footer>
+		<SiteFooter />
 		<script>import "../scripts/portfolio.ts";</script>
 	</body>
 </html>

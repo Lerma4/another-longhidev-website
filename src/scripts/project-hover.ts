@@ -19,22 +19,22 @@ media.add("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-pr
 		project.dataset.hoverReady = "";
 		const enter = () => reveal.timeScale(1).play();
 		const leave = () => {
-			if (!project.matches(":focus-visible")) reveal.timeScale(1.5).reverse();
+			if (!project.matches(":focus-visible, :focus-within")) reveal.timeScale(1.5).reverse();
 		};
-		const focus = () => { if (project.matches(":focus-visible")) reveal.pause().progress(1); };
+		const focus = () => { if (project.matches(":focus-visible, :focus-within")) reveal.pause().progress(1); };
 		const blur = () => {
 			if (project.matches(":hover")) enter();
 			else reveal.pause().progress(0);
 		};
 		project.addEventListener("pointerenter", enter);
 		project.addEventListener("pointerleave", leave);
-		project.addEventListener("focus", focus);
-		project.addEventListener("blur", blur);
+		project.addEventListener("focusin", focus);
+		project.addEventListener("focusout", blur);
 		cleanups.push(() => {
 			project.removeEventListener("pointerenter", enter);
 			project.removeEventListener("pointerleave", leave);
-			project.removeEventListener("focus", focus);
-			project.removeEventListener("blur", blur);
+			project.removeEventListener("focusin", focus);
+			project.removeEventListener("focusout", blur);
 			delete project.dataset.hoverReady;
 		});
 	});

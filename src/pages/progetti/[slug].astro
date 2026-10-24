@@ -1,0 +1,17 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import { caseStudyProjects } from "../../data/projects";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+
+export const prerender = true;
+export const getStaticPaths = (() =>
+	caseStudyProjects.map((project) => ({
+		params: { slug: project.slug },
+		props: { project },
+	}))
+) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { project } = Astro.props;
+---
+<ProjectLayout project={project} />

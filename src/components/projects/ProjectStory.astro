@@ -1,0 +1,47 @@
+---
+import type { Project, CaseStudy } from "../../data/projects";
+interface Props { project: Project & { caseStudy: CaseStudy } }
+const { project } = Astro.props;
+---
+<section class="project-story" aria-label="Il progetto">
+	<aside>
+		<dl>
+			<div><dt>Progetto</dt><dd>{project.name}</dd></div>
+			<div><dt>Ambito</dt><dd>{project.service}</dd></div>
+			<div><dt>Anno</dt><dd>{project.year}</dd></div>
+		</dl>
+		<p class="concept-note">Concept indipendente.<br />Non un lavoro per un cliente reale.</p>
+	</aside>
+	<div class="story-copy">
+		<section aria-labelledby="project-context">
+			<h2 id="project-context">Il contesto.</h2>
+			{project.caseStudy.context.map((paragraph) => <p>{paragraph}</p>)}
+		</section>
+		<section aria-labelledby="project-solution">
+			<h2 id="project-solution">La soluzione.</h2>
+			{project.caseStudy.solution.map((paragraph) => <p>{paragraph}</p>)}
+			<ul aria-label="Attività del concept">{project.caseStudy.services.map((service) => <li>{service}</li>)}</ul>
+		</section>
+	</div>
+</section>
+<style>
+	.project-story{display:grid;grid-template-columns:1fr 2fr;gap:clamp(32px,6vw,100px);padding:clamp(72px,9vw,140px) clamp(20px,4vw,64px)}
+	aside{font-size:16px;line-height:1.6}
+	dl{margin:0;display:grid;gap:28px}
+	dt{color:var(--gray)}
+	dd{margin:4px 0 0;font-size:20px}
+	.concept-note{max-width:28ch;margin:40px 0 0;color:var(--gray)}
+	.story-copy{max-width:760px}
+	.story-copy section+section{margin-top:64px}
+	h2{margin:0 0 28px;color:var(--brand);font-size:clamp(32px,4vw,54px);line-height:1.05;letter-spacing:-.04em;font-weight:500}
+	.story-copy p{margin:0 0 20px;font-size:clamp(18px,1.6vw,23px);line-height:1.55}
+	ul{display:flex;flex-wrap:wrap;gap:10px 24px;list-style:none;padding:0;margin:32px 0 0;color:var(--brand);font-size:16px;line-height:1.5}
+	@media(max-width:640px){
+		.project-story{grid-template-columns:1fr;gap:44px;padding-block:56px}
+		dl{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+		dd{font-size:18px;overflow-wrap:anywhere}
+		.concept-note{max-width:none;margin-top:20px}
+		.story-copy section+section{margin-top:44px}
+		h2{margin-bottom:20px}
+	}
+</style>
