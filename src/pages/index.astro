@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import IdeaPlayground from "../components/IdeaPlayground.astro";
+import Portfolio from "../components/Portfolio.astro";
 export const prerender = true;
 ---
 
@@ -46,6 +47,7 @@ export const prerender = true;
 				<button class="motion-toggle" type="button" aria-pressed="false" hidden>Metti in pausa l’animazione</button>
 			</section>
 			<IdeaPlayground />
+			<Portfolio />
 			<section class="contact-demo" id="contatto" aria-labelledby="contact-title">
 				<div><p class="eyebrow">Facciamo il primo passo</p><h2 id="contact-title">Raccontami il tuo progetto.</h2><p>Il messaggio sarà registrato per poter essere letto e ricevere una risposta. Consulta l’<a href="/privacy/">informativa privacy</a>. In alternativa, scrivi a <a href="mailto:lorenzo.longhi1995@gmail.com">lorenzo.longhi1995@gmail.com</a>.</p></div>
 				<form id="contact-form">
